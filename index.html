@@ -11,9 +11,9 @@
     <link rel="manifest" href="./manifest.webmanifest" />
     <meta
       name="description"
-      content="Trợ lý ngoại tuyến quản lý công tác Đội, thi đua lớp và báo cáo dành cho Tổng phụ trách Đội THCS."
+      content="Trợ lý ngoại tuyến quản lý công tác Đội, thi đua lớp và báo cáo dành cho Tổng phụ trách Đội TH."
     />
-    <title>Trợ lý Tổng phụ trách Đội THCS</title>
+    <title>Trợ lý Tổng phụ trách Đội TH</title>
     <style>
       :root {
         --blue: #0b6bcb;
@@ -1979,7 +1979,7 @@
     >
       <div class="activation-card">
         <div class="activation-logo" aria-hidden="true">Đ</div>
-        <h1 id="activationTitle">TRỢ LÝ TỔNG PHỤ TRÁCH ĐỘI THCS</h1>
+        <h1 id="activationTitle">TRỢ LÝ TỔNG PHỤ TRÁCH ĐỘI TH</h1>
         <p>Local-first trên thiết bị, đồng bộ riêng qua Google Drive khi đã cấu hình.</p>
         <form id="activationForm">
           <div class="field">
@@ -2024,7 +2024,7 @@
         <div class="brand">
           <div class="brand-mark">Đ</div>
           <div class="brand-text">
-            <strong>TRỢ LÝ TỔNG PHỤ TRÁCH</strong><span>Công tác Đội THCS</span>
+            <strong>TRỢ LÝ TỔNG PHỤ TRÁCH</strong><span>Công tác Đội TH</span>
           </div>
         </div>
         <nav class="nav" id="nav" aria-label="Điều hướng chính"></nav>
@@ -2141,18 +2141,18 @@
       (() => {
         const PUBLIC_CONFIG = Object.freeze(window.TPT_APP_CONFIG || {});
         const APP = {
-          name: "Trợ lý Tổng phụ trách Đội THCS",
+          name: "Trợ lý Tổng phụ trách Đội TH",
           version: PUBLIC_CONFIG.APP_VERSION || "3.2.0",
           schema: Number(PUBLIC_CONFIG.SCHEMA_VERSION || 10),
-          dbName: PUBLIC_CONFIG.DB_NAME || "TPT_DOI_THCS_DB",
+          dbName: PUBLIC_CONFIG.DB_NAME || "TPT_DOI_TH_DB",
           appId:
             PUBLIC_CONFIG.APP_ID || "vn.giaoducso40.tpt.thcs.thcs",
           schoolProfileId:
             PUBLIC_CONFIG.SCHOOL_PROFILE_ID || "thcs-thcs-profile-001",
           namespace:
             PUBLIC_CONFIG.APP_NAMESPACE || "tpt_thcs_thcs_profile_001",
-          schoolName: PUBLIC_CONFIG.SCHOOL_NAME || "THCS NGUYỄN THỊ ĐỊNH",
-          schoolLevel: PUBLIC_CONFIG.SCHOOL_LEVEL || "THCS",
+          schoolName: PUBLIC_CONFIG.SCHOOL_NAME || "TH NGUYỄN THỊ ĐỊNH",
+          schoolLevel: PUBLIC_CONFIG.SCHOOL_LEVEL || "TH",
           googleClientId: String(PUBLIC_CONFIG.GOOGLE_CLIENT_ID || "").trim(),
           expectedEmailHash: String(
             PUBLIC_CONFIG.EXPECTED_GOOGLE_EMAIL_SHA256 || "",
@@ -5544,12 +5544,12 @@
           await db.put("schools", {
             id: "school-main",
             name:
-              APP.schoolName === "TRƯỜNG THCS"
-                ? "TRƯỜNG THCS (CHƯA CẤU HÌNH)"
+              APP.schoolName === "TRƯỜNG TH"
+                ? "TRƯỜNG TH (CHƯA CẤU HÌNH)"
                 : APP.schoolName,
             code: "",
             address: "",
-            is_sample: APP.schoolName === "TRƯỜNG THCS",
+            is_sample: APP.schoolName === "TRƯỜNG TH",
           });
           await db.bulkPut("campuses", [
             { id: c1, name: "Cơ sở 1", code: "CS1" },
@@ -7982,7 +7982,7 @@
           }
           if (type === "summary")
             body = `<div class="metric-row"><div class="metric"><strong>${d.tasks.length}</strong><span>Công việc</span></div><div class="metric"><strong>${d.activities.length}</strong><span>Hoạt động</span></div><div class="metric"><strong>${d.incidents.length}</strong><span>Vi phạm</span></div><div class="metric"><strong>${d.commendations.length}</strong><span>Khen thưởng</span></div><div class="metric"><strong>${d.documents.length}</strong><span>Hồ sơ</span></div></div><h3>I. Tiến độ công việc</h3><p>Hoàn thành ${d.completed.length}/${d.tasks.length}; quá hạn ${d.overdue.length}.</p><h3>II. Hoạt động và phong trào</h3><p>${d.activities.length} hoạt động; ${d.programs.length} kết quả rèn luyện/phong trào.</p><h3>III. Thi đua và nề nếp</h3><p>${d.rank.length} lớp có dữ liệu xếp hạng; ${d.incidents.length} ghi nhận vi phạm.</p>`;
-          return `<div class="center"><small>${esc(d.school?.name || "TRƯỜNG THCS")}</small><h2 style="margin:8px 0">${title}</h2><p>${esc(d.week?.name || "")} • ${esc(campusName(state.campusId))}</p></div><div class="split"><small>Tạo lúc: ${fmtDateTime(now())}</small><small>Phạm vi dữ liệu: ${esc(d.week?.name || "Năm học")} / ${esc(campusName(state.campusId))}</small></div><hr style="border:0;border-top:1px solid var(--line)">${body}<div style="display:grid;grid-template-columns:1fr 1fr;text-align:center;margin-top:35px"><div><strong>Người lập báo cáo</strong></div><div><strong>Xác nhận của nhà trường</strong></div></div>`;
+          return `<div class="center"><small>${esc(d.school?.name || "TRƯỜNG TH")}</small><h2 style="margin:8px 0">${title}</h2><p>${esc(d.week?.name || "")} • ${esc(campusName(state.campusId))}</p></div><div class="split"><small>Tạo lúc: ${fmtDateTime(now())}</small><small>Phạm vi dữ liệu: ${esc(d.week?.name || "Năm học")} / ${esc(campusName(state.campusId))}</small></div><hr style="border:0;border-top:1px solid var(--line)">${body}<div style="display:grid;grid-template-columns:1fr 1fr;text-align:center;margin-top:35px"><div><strong>Người lập báo cáo</strong></div><div><strong>Xác nhận của nhà trường</strong></div></div>`;
         }
         function simpleTable(head, rows) {
           return `<div class="table-wrap" style="max-height:none"><table><thead><tr>${head.map((x) => `<th>${esc(x)}</th>`).join("")}</tr></thead><tbody>${rows.map((r) => `<tr>${r.map((x, i) => `<td class="${i === 0 ? "wrap" : ""}">${esc(x)}</td>`).join("")}</tr>`).join("") || `<tr><td colspan="${head.length}" class="empty">Không có dữ liệu trong phạm vi đã chọn.</td></tr>`}</tbody></table></div>`;
@@ -9102,7 +9102,7 @@
             ];
             let body = "";
             if (step === 0)
-              body = `<div class="form-grid"><div class="field full"><label class="required">Tên trường</label><input id="wSchool" value="${esc(data.school)}" placeholder="TRƯỜNG THCS…"></div><div class="field"><label>Mã trường</label><input id="wCode" value="${esc(data.code)}"></div><div class="field"><label>Địa chỉ khái quát</label><input id="wAddress" value="${esc(data.address)}"></div></div>`;
+              body = `<div class="form-grid"><div class="field full"><label class="required">Tên trường</label><input id="wSchool" value="${esc(data.school)}" placeholder="TRƯỜNG TH…"></div><div class="field"><label>Mã trường</label><input id="wCode" value="${esc(data.code)}"></div><div class="field"><label>Địa chỉ khái quát</label><input id="wAddress" value="${esc(data.address)}"></div></div>`;
             if (step === 1)
               body = `<div class="field"><label>Tên cơ sở, mỗi dòng một cơ sở</label><textarea id="wCampuses">${esc(data.campuses.join("\n"))}</textarea></div>`;
             if (step === 2)
@@ -10063,7 +10063,7 @@
           )
             ? school.logo_data_url
             : "";
-          panel.innerHTML = `<div class="grid-2"><div class="card"><div class="card-head"><h2>Thông tin trường</h2><span class="meta">Dùng trên báo cáo và biểu mẫu</span></div><div class="card-body"><form id="schoolCenterForm"><div class="form-grid"><div class="field full"><label class="required">Tên trường</label><input name="name" value="${esc(school?.name || "")}" required maxlength="180"></div><div class="field"><label class="required">Cấp học</label><select name="school_level" required><option value="TH" ${school?.school_level === "TH" ? "selected" : ""}>Tiểu học</option><option value="THCS" ${!school?.school_level || school?.school_level === "THCS" ? "selected" : ""}>Trung học cơ sở</option><option value="LIEN_CAP" ${school?.school_level === "LIEN_CAP" ? "selected" : ""}>Liên cấp TH–THCS</option></select></div><div class="field"><label>Mã trường</label><input name="code" value="${esc(school?.code || "")}" maxlength="60"></div><div class="field full"><label>Địa chỉ</label><input name="address" value="${esc(school?.address || "")}" maxlength="250"></div><div class="field"><label>Điện thoại</label><input name="phone" value="${esc(school?.phone || "")}" inputmode="tel" maxlength="30"></div><div class="field"><label>Email</label><input name="email" value="${esc(school?.email || "")}" type="email" maxlength="150"></div><div class="field"><label>Tên Liên đội/Sao nhi đồng</label><input name="team_name" value="${esc(school?.team_name || "Liên đội")}" maxlength="180"></div><div class="field"><label>Năm học ghi trên biểu mẫu</label><input name="current_school_year" value="${esc(school?.current_school_year || state.cache.years.find((year) => year.id === state.yearId)?.name || "")}" maxlength="30"></div><div class="field"><label>Người lập báo cáo</label><input name="reporter" value="${esc(school?.reporter || "")}" maxlength="150"></div><div class="field"><label>Chức danh</label><input name="reporter_title" value="${esc(school?.reporter_title || "Tổng phụ trách Đội")}" maxlength="120"></div></div></form><button class="btn primary mt" id="saveSchoolCenter">Lưu thông tin</button></div></div><div class="card"><div class="card-head"><h2>Logo trường</h2><span class="meta">PNG/JPG/WebP/SVG • tối đa 1 MB</span></div><div class="card-body"><div id="schoolLogoPreview" style="min-height:180px;display:grid;place-items:center;border:1px dashed var(--line);border-radius:12px;background:var(--soft)">${logo ? `<img src="${esc(logo)}" alt="Logo trường" style="max-width:180px;max-height:160px;object-fit:contain">` : '<span class="muted">Chưa có logo</span>'}</div><div class="toolbar mt"><label class="btn" for="schoolLogoFile">Chọn logo</label><input id="schoolLogoFile" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml" class="hidden"><button class="btn danger" id="removeSchoolLogo" type="button" ${logo ? "" : "disabled"}>Xóa logo</button></div><div class="notice mt">Logo được lưu cục bộ trong hồ sơ trường và đi cùng gói sao lưu; không tải lên dịch vụ ngoài ứng dụng.</div></div></div></div>`;
+          panel.innerHTML = `<div class="grid-2"><div class="card"><div class="card-head"><h2>Thông tin trường</h2><span class="meta">Dùng trên báo cáo và biểu mẫu</span></div><div class="card-body"><form id="schoolCenterForm"><div class="form-grid"><div class="field full"><label class="required">Tên trường</label><input name="name" value="${esc(school?.name || "")}" required maxlength="180"></div><div class="field"><label class="required">Cấp học</label><select name="school_level" required><option value="TH" ${school?.school_level === "TH" ? "selected" : ""}>Tiểu học</option><option value="TH" ${!school?.school_level || school?.school_level === "TH" ? "selected" : ""}>Trung học cơ sở</option><option value="LIEN_CAP" ${school?.school_level === "LIEN_CAP" ? "selected" : ""}>Liên cấp TH–TH</option></select></div><div class="field"><label>Mã trường</label><input name="code" value="${esc(school?.code || "")}" maxlength="60"></div><div class="field full"><label>Địa chỉ</label><input name="address" value="${esc(school?.address || "")}" maxlength="250"></div><div class="field"><label>Điện thoại</label><input name="phone" value="${esc(school?.phone || "")}" inputmode="tel" maxlength="30"></div><div class="field"><label>Email</label><input name="email" value="${esc(school?.email || "")}" type="email" maxlength="150"></div><div class="field"><label>Tên Liên đội/Sao nhi đồng</label><input name="team_name" value="${esc(school?.team_name || "Liên đội")}" maxlength="180"></div><div class="field"><label>Năm học ghi trên biểu mẫu</label><input name="current_school_year" value="${esc(school?.current_school_year || state.cache.years.find((year) => year.id === state.yearId)?.name || "")}" maxlength="30"></div><div class="field"><label>Người lập báo cáo</label><input name="reporter" value="${esc(school?.reporter || "")}" maxlength="150"></div><div class="field"><label>Chức danh</label><input name="reporter_title" value="${esc(school?.reporter_title || "Tổng phụ trách Đội")}" maxlength="120"></div></div></form><button class="btn primary mt" id="saveSchoolCenter">Lưu thông tin</button></div></div><div class="card"><div class="card-head"><h2>Logo trường</h2><span class="meta">PNG/JPG/WebP/SVG • tối đa 1 MB</span></div><div class="card-body"><div id="schoolLogoPreview" style="min-height:180px;display:grid;place-items:center;border:1px dashed var(--line);border-radius:12px;background:var(--soft)">${logo ? `<img src="${esc(logo)}" alt="Logo trường" style="max-width:180px;max-height:160px;object-fit:contain">` : '<span class="muted">Chưa có logo</span>'}</div><div class="toolbar mt"><label class="btn" for="schoolLogoFile">Chọn logo</label><input id="schoolLogoFile" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml" class="hidden"><button class="btn danger" id="removeSchoolLogo" type="button" ${logo ? "" : "disabled"}>Xóa logo</button></div><div class="notice mt">Logo được lưu cục bộ trong hồ sơ trường và đi cùng gói sao lưu; không tải lên dịch vụ ngoài ứng dụng.</div></div></div></div>`;
           let pendingLogo = logo;
           $("#schoolLogoFile").onchange = async (event) => {
             const file = event.target.files[0];
